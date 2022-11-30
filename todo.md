@@ -1,1 +1,17 @@
-пше 
++ npm init -y //pakage json - script:
++ npm i
++ npx eslint --init // eslintrc - rules
++ npx create-gitignore node (добавить /sessions)
++ npm i express
++ npm i -D nodemon
++ npm i morgan
++ npm install @babel/core @babel/preset-env @babel/preset-react @babel/register react react-dom //+ .babelrc
++ npm i cookie-parser
++ npm i session-file-store
++ npm i express-session
++ npm i bcrypt 
++ .sequelizerc
++ config 
++ middlewares
++  папки view, public, routes +layout
++ app.js
