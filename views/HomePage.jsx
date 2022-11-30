@@ -22,3 +22,4 @@ function HomePage({ user }) {
   );
 }
 module.exports = HomePage;
+
