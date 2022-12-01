@@ -1,7 +1,7 @@
 const authRouter = require('express').Router();
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
-// const { User } = require('../../db/models');
+const { User } = require('../../db/models');
 const LoginPage = require('../../views/auth/LoginPage');
 const RegisterPage = require('../../views/auth/RegisterPage');
 
@@ -10,17 +10,14 @@ authRouter.get('/login', async (req, res) => {
 });
 
 authRouter.post('/login', async (req, res) => {
-  //   const user = await User.findOne({
-  //     where: { login: req.body.login },
-  //   });
+  const user = await User.findOne({
+    where: { email: req.body.login },
+  });
 
-  //   if (
-  //     user &&
-  //     (await bcrypt.compare(req.body.password, user.password))
-  //   ) {
-  //     req.session.userId = user.id;
-  res.redirect('/');
-  //   }
+  if (user && (await bcrypt.compare(req.body.password, user.password))) {
+    req.session.userId = user.id;
+    res.redirect('/');
+  }
 });
 
 authRouter.get('/register', async (req, res) => {

@@ -7,15 +7,28 @@ function RegisterPage({ user }) {
       <form id="register-form">
         <div className="mb-3">
           <label htmlFor="exampleInputLogin1" className="form-label">
-            Login
+            Login(email)
           </label>
           <input
             className="form-control"
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
-            name="login"
+            name="email"
           />
         </div>
+
+        <div className="mb-3">
+          <label htmlFor="exampleInputName" className="form-label">
+            Name
+          </label>
+          <input
+            className="form-control"
+            id="exampleInputName"
+            aria-describedby="loginHelp"
+            name="name"
+          />
+        </div>
+
         <div className="mb-3">
           <label
             htmlFor="exampleInputPassword1"
@@ -49,7 +62,7 @@ function RegisterPage({ user }) {
         </button>
       </form>
 
-      <script src="/js/registerPage.js" />
+      <script src="/registerPage.js" />
     </Layout>
   );
 }
