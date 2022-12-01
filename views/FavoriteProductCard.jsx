@@ -2,7 +2,7 @@ const React = require('react');
 
 module.exports = function FavoriteProductCard({ user, product }) {
   return (
-    <div id={product.id} className="card" style={{ width: '18rem' }}>
+    <div id={product.id} className="card favorite-card" style={{ width: '18rem' }}>
       <img src={product.img} className="card-img-top" alt="лекарство" />
       <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
