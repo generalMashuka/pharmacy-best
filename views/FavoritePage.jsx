@@ -1,12 +1,12 @@
 const React = require('react');
 const Layout = require('./Layout');
-const FavoriteProductCard = require('./FavoriteProdutCard');
+const FavoriteProductCard = require('./FavoriteProductCard');
 
-function FavoritePage({ favorites, user }) {
+function FavoritePage({ products, user }) {
   return (
     <Layout title="Favorite" user={user}>
-      <div>
-        {favorites.map((favorite) => <FavoriteProductCard key={favorite.id} favorite={favorite} user={user} />)}
+      <div id="favorite-product">
+        { products.map((product) => <FavoriteProductCard key={product.id} product={product} user={user} />)}
       </div>
     </Layout>
   );
