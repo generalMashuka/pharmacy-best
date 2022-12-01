@@ -17,10 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      // primaryKey: true,
+      onDelete: 'CASCADE',
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      // primaryKey: true,
+      onDelete: 'CASCADE',
     },
     count_item: {
       type: DataTypes.INTEGER,
