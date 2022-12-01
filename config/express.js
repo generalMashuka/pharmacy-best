@@ -3,7 +3,9 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const ssr = require('../middlewares/ssr');
+const getUser = require('../middlewares/getUser');
 const sessionConfig = require('./sessionConfig');
+const getUser = require('../middlewares/getUser');
 
 function expressConfig(app) {
   // плагины - миддлварки
@@ -22,7 +24,10 @@ function expressConfig(app) {
   // настраиваем статические файлы из папки public
   app.use(express.static(path.join(__dirname, '../public')));
 
+  app.use(getUser);
+
   app.use(ssr);
+  app.use(getUser);
 }
 
 module.exports = expressConfig;
