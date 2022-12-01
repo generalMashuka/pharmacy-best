@@ -34,7 +34,7 @@ function NavBar({ user }) {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/like">Избранное</a>
+            <a className="nav-link active" aria-current="page" href="/favorite">Избранное</a>
 
           </li>
           <li className="nav-item">
