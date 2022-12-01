@@ -1,57 +1,49 @@
 const React = require('react');
 
-function NavBar({user}){
-    return (
-        <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              ЛОГОТИП
+function NavBar({ user }) {
+  return (
+    <nav className="navbar">
+      <div className="container-bar">
+        <a className="navbar-brand" href="/">
+          ЛОГОТИП
+        </a>
+
+        <div className="navbar-login" id="navbarNav">
+          {!user && (
+            <a className="nav-link" href="/auth/login">
+              Login
             </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                
-                {!user && (
-                  <li className="nav-item">
-                    <a className="nav-link" href="/auth/login">
-                      Login
-                    </a>
-                  </li>
-                )}
-                {!user && (
-                  <li className="nav-item">
-                    <a className="nav-link" href="/auth/register">
-                      Register
-                    </a>
-                  </li>
-                )}
-                {user && (
-                  <li className="nav-item">
-                    <span className="nav-link">Hello, {user.login}!</span>
-                  </li>
-                )}
-                {user && (
-                  <li className="nav-item">
-                    <a className="nav-link" href="/auth/logout">
-                      Logout
-                    </a>
-                  </li>
-                )}
-              </ul>
+          )}
+          {!user && (
+            <a className="nav-link" href="/auth/register">
+              Register
+            </a>
+          )}
+          {user && (
+            <div className="navbar-logout">
+              <div className="nav-link">
+                Hello,
+                {' '}
+                {user.name}
+                !
+              </div>
+              <div className="nav-btn">
+                <div className="like-position">
+                  <a href="/like">избранное</a>
+                </div>
+                <div className="shop-position">
+                  <a href="/shop">корзина</a>
+                </div>
+                <div className="nav-link">
+                  <a href="/auth/logout">Выйти</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </nav>
-      );
+          )}
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-module.exports=NavBar
+module.exports = NavBar;
