@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const { User } = require('../../db/models');
 const LoginPage = require('../../views/auth/LoginPage');
 const RegisterPage = require('../../views/auth/RegisterPage');
+const EditProfile = require('../../views/auth/EditProfile');
 
 authRouter.get('/login', async (req, res) => {
   res.renderComponent(LoginPage);
@@ -32,6 +33,33 @@ authRouter.get('/logout', async (req, res) => {
       res.redirect('/');
     }
   });
+});
+
+authRouter.get('/edit', async (req, res) => {
+  const { user } = res.locals;
+  console.log(user);
+  const userProfile = await User.findOne({ where: { id: user.id } });
+  res.renderComponent(EditProfile, { user, userProfile });
+});
+
+authRouter.post('/edit', (req, res) => {
+  try {
+    const { user } = req.locals;
+    const {
+      name, email, password, passwordRepeat,
+    } = req.body;
+    if (user) {
+      if (password === passwordRepeat) {
+        user.name = name;
+        user.email = email;
+        user.password = bcrypt.hash(password, 10);
+        user.save();
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 });
 
 module.exports = authRouter;

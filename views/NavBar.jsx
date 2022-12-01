@@ -24,8 +24,11 @@ function NavBar({ user }) {
               <div className="nav-link">
                 Hello,
                 {' '}
-                {user.name}
-                !
+                <a href="/auth/edit">
+                  {' '}
+                  {user.name}
+                  !
+                </a>
               </div>
               <div className="nav-btn">
                 <div className="like-position">
