@@ -8,7 +8,7 @@ function Busket({ products, user }) {
 			<div>
 				{products.map((product) => {
 					<div>
-						<div>{product.productId}</div>
+						<div>{product.product_id}</div>
 						<div>{product.count_item}</div>
 						<div>Delete</div>
 					</div>;
