@@ -1,14 +1,14 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-function EditProfile({ user, userProfile }) {
+function EditProfile({ user }) {
   // console.log(user);
-  console.log(userProfile);
+
   return (
     <Layout user={user}>
       <form id="edit-profile-form">
         <div className="mb-3">
-          <label htmlFor="exampleInputLogin1" className="form-label" >
+          <label htmlFor="exampleInputLogin1" className="form-label">
             Login(email)
           </label>
           <input
@@ -16,7 +16,7 @@ function EditProfile({ user, userProfile }) {
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
             name="email"
-            placeholder={userProfile.email}
+            placeholder={user.email}
           />
         </div>
 
@@ -29,7 +29,7 @@ function EditProfile({ user, userProfile }) {
             id="exampleInputName"
             aria-describedby="loginHelp"
             name="name"
-            placeholder={userProfile.name}
+            placeholder={user.name}
           />
         </div>
 
@@ -83,7 +83,8 @@ function EditProfile({ user, userProfile }) {
         </button>
       </form>
 
-      {/* <script src="/registerPage.js" /> */}
+      <script src="/js/editProfile.js" />
+      {/* <div className='message'></div> */}
     </Layout>
   );
 }

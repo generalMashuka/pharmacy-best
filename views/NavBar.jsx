@@ -24,7 +24,7 @@ function NavBar({ user }) {
               <div className="nav-link">
                 Hello,
                 {' '}
-                <a href="/auth/edit">
+                <a href="/profile">
                   {' '}
                   {user.name}
                   !
