@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const ssr = require('../middlewares/ssr');
+const getUser = require('../middlewares/getUser');
 const sessionConfig = require('./sessionConfig');
 const getUser = require('../middlewares/getUser');
 
@@ -26,6 +27,7 @@ function expressConfig(app) {
   app.use(getUser);
 
   app.use(ssr);
+  app.use(getUser);
 }
 
 module.exports = expressConfig;

@@ -9,3 +9,4 @@ module.exports = async function getUser(req, res, next) {
 
   next();
 };
+

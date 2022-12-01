@@ -2,22 +2,37 @@ const React = require('react');
 
 function NavBar({ user }) {
   return (
-    <nav className="navbar">
-      <div className="container-bar">
-        <a className="navbar-brand" href="/">
-          ЛОГОТИП
-        </a>
 
-        <div className="navbar-login" id="navbarNav">
-          {!user && (
-            <a className="nav-link" href="/auth/login">
-              Login
+    <div className="nav-flex">
+      <ul className="nav">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/">ЛОГОТИП</a>
+        </li>
+      </ul>
+
+      {!user && (
+        <ul className="nav justify-content-end">
+
+          <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href="/auth/login">Login</a>
+
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/auth/register">Register</a>
+          </li>
+
+        </ul>
+      )}
+      {user && (
+        <ul className="nav justify-content-end">
+          <li className="nav-item">
+            <a className="nav-link disabled">
+              Hello,
+              {' '}
+              {user.name}
+              !
             </a>
-          )}
-          {!user && (
-            <a className="nav-link" href="/auth/register">
-              Register
-            </a>
+
           )}
           {user && (
             <div className="navbar-logout">
@@ -46,6 +61,7 @@ function NavBar({ user }) {
         </div>
       </div>
     </nav>
+
   );
 }
 
