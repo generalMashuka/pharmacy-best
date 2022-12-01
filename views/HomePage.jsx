@@ -11,13 +11,13 @@ function HomePage({ products, user }) {
           <div>
             сортировать по:
             <br />
-            <a href="">возрастанию</a>
+            <a href="/">Убыванию</a>
             <br />
-            <a href="">убыванию</a>
+            <a href="/dn">Возрастанию</a>
           </div>
           <div id="products-container">
             {products.map((product) => (
-              <Product key={product.id} product={product} />
+              <Product key={product.id} product={product} user={user}/>
             ))}
           </div>
         </div>
@@ -29,7 +29,7 @@ function HomePage({ products, user }) {
           <div className="week">3 item</div>
         </div>
       </div>
-      <script src="/products.js" defer />
+      <script src="/homePage.js" defer />
     </Layout>
   );
 }
