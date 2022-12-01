@@ -32,20 +32,36 @@ function NavBar({ user }) {
               {user.name}
               !
             </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/favorite">Избранное</a>
 
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/shop">Корзина</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/auth/logout">Выход</a>
-          </li>
-        </ul>
-      )}
-    </div>
+          )}
+          {user && (
+            <div className="navbar-logout">
+              <div className="nav-link">
+                Hello,
+                {' '}
+                <a href="/profile">
+                  {' '}
+                  {user.name}
+                  !
+                </a>
+              </div>
+              <div className="nav-btn">
+                <div className="like-position">
+                  <a href="/like">избранное</a>
+                </div>
+                <div className="shop-position">
+                  <a href="/shop">корзина</a>
+                </div>
+                <div className="nav-link">
+                  <a href="/auth/logout">Выйти</a>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </nav>
+
   );
 }
 

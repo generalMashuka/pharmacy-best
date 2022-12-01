@@ -28,4 +28,6 @@ authApiRouter.post('/register', async (req, res) => {
   return undefined;
 });
 
+
+
 module.exports = authApiRouter;
