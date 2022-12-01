@@ -1,42 +1,36 @@
 const basketRout = require('express').Router();
 
-const { BasketProduct, User, Product } = require('../../db/models');
+const { User, BasketProduct } = require('../../db/models');
 const Basket = require('../../views/Basket');
 
 basketRout.get('/', async (req, res) => {
-  console.log('basket');
   const { userId } = req.session;
-  console.log(userId);
   const user = userId && (await User.findOne({
     where: Number(userId),
     include: [
-
+      User.BasketProducts,
     ],
-    raw: true,
   }));
-
-  console.log(user);
-  const productIds = await Product.findAll({
-    where: { user_id: Number(userId) },
-    raw: true,
-    include: [
-      {
-        association: BasketProduct.Products,
-        required: true,
-      },
-    ],
-    order: [
-      // сортируем по цене
-      ['createdAt', 'DESC'],
-      // если цены совпадают у двух записей, то они будут сравниваться по id
-      ['id', 'DESC'],
-    ],
-
-  });
-  // const products = productIds && (productIds.map(await Product.findOne(Number(userId)));
-  console.log(productIds);
-
   res.renderComponent(Basket, { user });
+});
+
+basketRout.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  await BasketProduct.destroy({ where: { product_id: Number(id) } });
+  res.json({ message: 'done' });
+});
+
+basketRout.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  const { counter } = req.body;
+  console.log(counter);
+  const basket = await BasketProduct.findOne({ where: { product_id: Number(id) } });
+  if (basket) {
+    basket.count_item = counter;
+    basket.save();
+    res.json({ message: 'done' });
+  } else res.json({ message: 'error' });
 });
 
 module.exports = basketRout;
