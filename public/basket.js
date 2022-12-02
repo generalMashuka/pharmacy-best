@@ -5,7 +5,6 @@ document.querySelector('.products').addEventListener('click', async (event) => {
       method: 'delete',
     });
     const data = await res.json();
-    console.log(data);
     if (data.message === 'done') product.remove();
   }
 });

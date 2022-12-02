@@ -15,21 +15,32 @@ basketRout.get('/', async (req, res) => {
 });
 
 basketRout.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  await BasketProduct.destroy({ where: { product_id: Number(id) } });
-  res.json({ message: 'done' });
+  const { userId } = req.session;
+  const { user } = res.locals;
+  if (userId === user.id) {
+    const { id } = req.params;
+    await BasketProduct.destroy({ where: { product_id: Number(id) } });
+    res.json({ message: 'done' });
+  } else {
+    res.status(500).json({ message: 'Ошибка доступа' });
+  }
 });
 
 basketRout.put('/:id', async (req, res) => {
-  const { id } = req.params;
-  const { counter } = req.body;
-  console.log(counter);
-  const basket = await BasketProduct.findOne({ where: { product_id: Number(id) } });
-  if (basket) {
-    basket.count_item = counter;
-    basket.save();
-    res.json({ message: 'done' });
-  } else res.json({ message: 'error' });
+  const { userId } = req.session;
+  const { user } = res.locals;
+  if (userId === user.id) {
+    const { id } = req.params;
+    const { counter } = req.body;
+    const basket = await BasketProduct.findOne({ where: { product_id: Number(id) } });
+    if (basket) {
+      basket.count_item = counter;
+      basket.save();
+      res.json({ message: 'done' });
+    } else res.json({ message: 'error' });
+  } else {
+    res.status(500).json({ message: 'Ошибка доступа' });
+  }
 });
 
 module.exports = basketRout;
