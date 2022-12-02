@@ -16,7 +16,7 @@ function EditProfile({ user }) {
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
             name="email"
-            placeholder={user.email}
+            defaultValue={user.email}
           />
         </div>
 
@@ -29,8 +29,9 @@ function EditProfile({ user }) {
             id="exampleInputName"
             aria-describedby="loginHelp"
             name="name"
-            placeholder={user.name}
+            defaultValue={user.name}
           />
+
         </div>
 
         <div className="mb-3">
@@ -84,7 +85,7 @@ function EditProfile({ user }) {
       </form>
 
       <script src="/js/editProfile.js" />
-      {/* <div className='message'></div> */}
+      <div className="message"/>
     </Layout>
   );
 }
