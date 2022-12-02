@@ -8,6 +8,7 @@ profileApiRouter.put('/', async (req, res) => {
     name, email, password, passwordRepeat, currentPassword,
   } = req.body;
 
+
   if (user && user.id === userId) {
     if (await bcrypt.compare(currentPassword, user.password)) {
       if (password) {

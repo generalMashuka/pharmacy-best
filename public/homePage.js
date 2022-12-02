@@ -1,3 +1,5 @@
+const container = document.querySelector('.left');
+
 document.querySelector('#products-container').addEventListener('click', async (event) => {
   if (event.target.classList.contains('like-btn')) {
     event.preventDefault();
@@ -12,8 +14,6 @@ document.querySelector('#products-container').addEventListener('click', async (e
       body: JSON.stringify({ id }),
     });
     const result = await response.json();
-    if (result.success) alert('товар добавлен в избранное');
-    else alert('товар уже в избранном');
   } else if (event.target.classList.contains('sale-btn')) {
     event.preventDefault();
     const saleBtn = event.target;
@@ -27,46 +27,44 @@ document.querySelector('#products-container').addEventListener('click', async (e
       body: JSON.stringify({ id }),
     });
     const result = await response.json();
-    if (result.success) alert('товар добавлен в корзину');
-  } else if (event.target.classList.contains('btn-card')) {
-    const btnCard = event.target;
-    const card = btnCard.closest('.card');
-    const id = Number(card.dataset.id);
-    const res = await fetch(`/api/card/${id}`);
-    const { product } = await res.json();
-    // const {product} = gh.product
-    const container = document.querySelector('.left');
-    console.log(product.product);
+    // } else if (event.target.classList.contains('btn-card')) {
+    //   const btnCard = event.target;
+    //   const card = btnCard.closest('.card');
+    //   const id = Number(card.dataset.id);
+    //   const res = await fetch(`/api/card/${id}`);
+    //   const { product } = await res.json();
 
-    if (product) {
-      container.innerHTML =
-        // `  <div class="card " data-id=${product.id}>
-        //   <div class="card-body">
-        //     <h5 class="card-title">${product.name}</h5>
-        //   </div>
-        //   <img src=${product.img} class="card-img-top img-box" alt="..." />
-        //   <div class="price">
-        //     <p style="color: 'red', fontSize: '18px'">
-        //       <strike>${product.full_price}</strike>
-        //       ' руб'
-        //     </p>
-        //     <p style=" color: 'green', fontSize: '20px' ">${product.sale_price} руб</p>
-        //   </div>
-        // </div>`;
+    //   console.log(product.product);
 
-        `<div id="products-container">
-        <div class="card card_max" data-id=${product.id}>
-          <div class="card-body card_max">
-            <h5 class="card-title">${product.name}</h5>
-          </div>
-          <img src=${product.img} class="card-img-top img-box img-max" alt="..." />
-          <div class="price">
-            <p>
-              <strike>${product.full_price}</strike>
-            </p>
-            <p>${product.sale_price}</p>
-          </div>`;
-    }
-    // window.location.href = `/api/card/${id}`;
+    //   if (product) {
+    //     container.innerHTML = `<div id="products-container">
+    //       <div class="card card_max" data-id=${product.id}>
+    //         <div class="card-body card_max">
+    //           <h5 class="card-title">${product.name}</h5>
+    //         </div>
+    //         <img src=${product.img} class="card-img-top img-box img-max" alt="..." />
+    //         <div class="price">
+    //           <p>
+    //             <strike>${product.full_price}</strike>
+    //           </p>
+    //           <p>${product.sale_price}</p>
+    //         </div>`;
+    //   }
+    // }
   }
+});
+const htmlContainer = container.querySelector('#products-container');
+
+container.querySelector('.sort-dn').addEventListener('click', async (event) => {
+  event.preventDefault();
+  const res = await fetch('/api/dn');
+  const html = await res.text();
+  htmlContainer.innerHTML = html;
+});
+
+container.querySelector('.sort-up').addEventListener('click', async (event) => {
+  event.preventDefault();
+  const res = await fetch('/api/');
+  const html = await res.text();
+  htmlContainer.innerHTML = html;
 });

@@ -1,6 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
-const Product = require('./Product');
+const ProductContainer = require('./ProductContainer');
 
 function HomePage({ products, user }) {
   return (
@@ -11,15 +11,15 @@ function HomePage({ products, user }) {
           <div>
             сортировать по:
             <br />
-            <a href="/">Убыванию</a>
+            <a className="sort-up" href="#">
+              Убыванию
+            </a>
             <br />
-            <a href="/dn">Возрастанию</a>
+            <a className="sort-dn" href="#">
+              Возрастанию
+            </a>
           </div>
-          <div id="products-container">
-            {products.map((product) => (
-              <Product key={product.id} product={product} user={user}/>
-            ))}
-          </div>
+          <ProductContainer products={products} user={user} />
         </div>
         <div className="right">
           <div className="calendar">calendar</div>
