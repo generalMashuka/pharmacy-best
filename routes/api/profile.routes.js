@@ -1,8 +1,6 @@
 const profileApiRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const { User } = require('../../db/models');
-
 profileApiRouter.put('/', async (req, res) => {
   const { userId } = req.session;
   const { user } = res.locals;

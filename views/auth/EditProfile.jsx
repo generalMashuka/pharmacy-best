@@ -9,7 +9,7 @@ function EditProfile({ user }) {
       <form id="edit-profile-form">
         <div className="mb-3">
           <label htmlFor="exampleInputLogin1" className="form-label">
-            Login(email)
+            Login
           </label>
           <input
             className="form-control"
@@ -85,7 +85,7 @@ function EditProfile({ user }) {
       </form>
 
       <script src="/js/editProfile.js" />
-      <div className="message"/>
+      <div className="message" />
     </Layout>
   );
 }
