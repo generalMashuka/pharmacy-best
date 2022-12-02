@@ -3,7 +3,7 @@ const React = require('react');
 function Product({ product, user }) {
   return (
     <div className="card" data-id={product.id}>
-      <div className="card-body" >
+      <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
       </div>
       <img src={product.img} className="card-img-top img-box" alt="..." />

@@ -29,10 +29,10 @@ cardApiRouter.post('/sale', async (req, res) => {
       user_id: user.id,
       count_item: 1,
     });
-  } else {
-    await elem.increment('count_item', { by: 1 });
+    return res.json({ success: 'Товар добавлен в корзину' });
   }
-  res.json({ success: true });
+  await elem.increment('count_item', { by: 1 });
+  return res.json({ success: 'Товар добавлен в корзину' });
 });
 
 module.exports = cardApiRouter;
