@@ -12,12 +12,14 @@ authRouter.get('/login', async (req, res) => {
 
 authRouter.post('/login', async (req, res) => {
   const user = await User.findOne({
-    where: { email: req.body.login },
+    where: { email: req.body.email },
   });
 
   if (user && (await bcrypt.compare(req.body.password, user.password))) {
     req.session.userId = user.id;
     res.redirect('/');
+  } else {
+    res.status(420).json({ message: 'пароль введен неверно' });
   }
 });
 

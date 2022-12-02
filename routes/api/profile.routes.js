@@ -1,29 +1,34 @@
 const profileApiRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const { User } = require('../../db/models');
-
 profileApiRouter.put('/', async (req, res) => {
+  const { userId } = req.session;
+  const { user } = res.locals;
   const {
     name, email, password, passwordRepeat, currentPassword,
   } = req.body;
 
-  const user = await User.findOne({
-    where: { email },
-  });
 
-  console.log(user);
-  if (user) {
-    if (password) {
-      if (passwordRepeat === password && (await bcrypt.compare(currentPassword, user.password))) {
+  if (user && user.id === userId) {
+    if (await bcrypt.compare(currentPassword, user.password)) {
+      if (password) {
+        if (passwordRepeat === password) {
+          user.name = name;
+          user.email = email;
+          user.password = await bcrypt.hash(password, 10);
+          await user.save();
+          res.status(200).json({ message: 'данные изменены' });
+        } else {
+          res.status(420).json({ message: 'пароли не совпадают' });
+        }
+      } else {
         user.name = name;
         user.email = email;
-        user.password = await bcrypt.hash(password, 10);
-        user.save();
+        await user.save();
+        res.status(200).json({ message: 'данные изменены' });
       }
-    }
-  }
-  res.status(200).json({ message: true });
+    } else { res.status(421).json({ message: 'пароль введен неверно' }); }
+  } else { res.status(550).json({ message: 'извините, на сервере какие-то неполадки' }); }
 });
 
 module.exports = profileApiRouter;
