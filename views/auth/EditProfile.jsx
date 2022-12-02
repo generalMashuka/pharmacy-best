@@ -8,6 +8,7 @@ function EditProfile({ user }) {
     <Layout user={user}>
       <form id="edit-profile-form">
         <div className="mb-3">
+          <p className="in-stock">Изменить данные профиля</p>
           <label htmlFor="exampleInputLogin1" className="form-label">
             Login(email)
           </label>

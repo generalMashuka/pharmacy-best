@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Rostin";
+  src: url('../style/RF_Rostin/RF\ Rostin\ Regular.otf') format("opentype");
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -99,24 +105,25 @@ gap: 20px;
   width: 100px;
 } */
 .like-btn {
-  background-image: url('./img/heart-regular.svg');
+  background-image: url('../img/heart-regular.svg');
   width: 20px;
   height: 20px;
 }
 .sale-btn {
-  background-image: url('./img/cart-arrow-down-solid.svg');
+  background-image: url('../img/cart-arrow-down-solid.svg');
   width: 20px;
   height: 20px;
   }
 
 .nav-flex {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  background-color: rgb(82, 69, 69);
+  background-color: rgb(85, 79, 139);
   font-size: 31px;
 }
 .card {
-  height: 350px;
+  height: 370px;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -142,13 +149,11 @@ justify-self:center;
   width: 100%;
 }
 
-
 .price{
   display: flex;
   justify-content: space-around;
-  margin-bottom: 10px;
-
-}
+  align-items: center;
+ }
 .right {
   border: 1px solid black;
   padding: 15px;
@@ -166,7 +171,12 @@ justify-self:center;
 
 
 .nav-link{
-  color: white;
+  color: rgb(211, 83, 60);
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 0px;
+  margin-left: 30px;
 }
 
 #products-container {
@@ -181,7 +191,7 @@ justify-self:center;
 }
 
 .btn{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rostin', sans-serif;
   display: inline-block;
   background-color: grey;
   color: rgb(10, 5, 5);
@@ -191,15 +201,21 @@ justify-self:center;
   padding: 0.2em 1em;
   outline: none;
   border: 2px solid;
-  border-radius: 5px;
+  border-radius: 10px;
   justify-content: center;
   margin-top: 10px;
   /* margin-left: 75px; */
   font-family: "Rostin", Courier, monospace;
 }
 
+.btn-sort{
+  font-family: 'Rostin', sans-serif;
+  font-size: 20px;
+  padding: 0.2em 1em;
+}
+
 .card-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rostin', sans-serif;
   font-size: 25px;
   justify-content: center;
 }
@@ -215,6 +231,7 @@ justify-self:center;
   margin-top: 50px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .favorite-card,
@@ -228,11 +245,6 @@ justify-self:center;
   height: 450px;
 }
 
-.price {
-  margin-bottom: 25px;
-}
-
-
 .card_max.card {
   height: 500px;
   width: 500px;
@@ -242,8 +254,84 @@ justify-self:center;
   max-height: 250px;
 }
 
+.card-img-top{
+  margin-bottom: 20px;
+}
+
 .card-body.card_max {
   max-height: 100px;
 }
+
+.navbar-logout {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar {
+  margin-right: 150px;
+}
+
+.img-logo{
+  margin-left: 0px;
+}
+
+.nav-text {
+  font-family: 'Rostin', sans-serif;
+  color: rgb(243, 174, 46);
+  font-size: 30px;
+}
+
+.nav-item {
+  margin-right: 30px;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  margin-bottom: 25px;
+  font-size: 25px;
+  gap: 10px;
+  align-items: center;
+}
+
+.sort-up,
+.sort-dn
+ {
+  font-size: 20px;
+}
+
+.in-stock {
+  font-family: 'Rostin', sans-serif;
+  font-size: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+body {
+  background-color: rgb(187, 178, 178);
+}
+
+.sale-div{
+  margin-top: 20px;
+  scale: 120%;
+}
+
+.btn-more {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.text{
+  font-family: 'Rostin', sans-serif;
+  margin-top: 10px;
+}
+
+
 
 

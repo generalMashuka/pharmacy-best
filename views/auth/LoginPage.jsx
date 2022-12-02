@@ -14,6 +14,8 @@ function LoginPage({ user }) {
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
             name="login"
+            autoComplete="off"
+            placeholder="введите E-mail"
           />
         </div>
         <div className="mb-3">
@@ -28,6 +30,8 @@ function LoginPage({ user }) {
             className="form-control"
             id="exampleInputPassword1"
             name="password"
+            autoComplete="off"
+            placeholder="введите пароль"
           />
         </div>
         <button type="submit" className="btn btn-primary">

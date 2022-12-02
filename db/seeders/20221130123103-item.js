@@ -59,6 +59,12 @@ module.exports = {
         sale_price: 1520,
         img: 'https://farmani.ru/upload/iblock/d9e/ttas7ki1x7hrmlz8o9tzbnk2iysoulsk.jpg',
       },
+      {
+        name: 'Полиоксидолий',
+        full_price: 2281,
+        sale_price: 1999,
+        img: 'https://фото.монастырёв.рф/s/gi/prod/00/00/22/60/19/simbikort-turbuhaler-600x600.JPG',
+      },
     ]);
   },
 

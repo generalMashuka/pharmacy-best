@@ -7,15 +7,15 @@ function HomePage({ products, user }) {
     <Layout title="Pharmacy" user={user}>
       <div className="box">
         <div className="left">
-          <div>Лекарства в наличии:</div>
-          <div>
-            сортировать по:
+          <div className="in-stock">Лекарства в наличии</div>
+          <div className="sort">
+            <div className="text">Cортировать по: </div>
             <br />
-            <a className="sort-up" href="#">
+            <a className="sort-up btn btn-primary" href="#">
               Убыванию
             </a>
             <br />
-            <a className="sort-dn" href="#">
+            <a className="sort-dn btn btn-primary" href="#">
               Возрастанию
             </a>
           </div>
