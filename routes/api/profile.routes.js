@@ -9,13 +9,13 @@ profileApiRouter.put('/', async (req, res) => {
   } = req.body;
 
   const user = await User.findOne({
-    where: { email }
+    where: { email },
   });
 
   console.log(user);
   if (user) {
     if (password) {
-      if (passwordRepeat === password && await bcrypt.compare(currentPassword, user.password)) {
+      if (passwordRepeat === password && (await bcrypt.compare(currentPassword, user.password))) {
         user.name = name;
         user.email = email;
         user.password = await bcrypt.hash(password, 10);

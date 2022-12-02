@@ -1,7 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-
 function ProductPage({ product, user }) {
   return (
     <Layout title="Pharmacy" user={user}>

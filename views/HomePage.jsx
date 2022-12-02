@@ -11,7 +11,9 @@ function HomePage({ products, user }) {
           <div>
             сортировать по:
             <br />
-            <a className='sort-up' href="#">Убыванию</a>
+            <a className="sort-up" href="#">
+              Убыванию
+            </a>
             <br />
             <a className="sort-dn" href="#">
               Возрастанию

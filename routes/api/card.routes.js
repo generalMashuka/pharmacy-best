@@ -1,8 +1,8 @@
 const cardApiRouter = require('express').Router();
 
-const { FavoriteProduct, User, BasketProduct, Product } = require('../../db/models');
-
-const ProductPage = require('../../views/ProductPage');
+const {
+  FavoriteProduct, User, BasketProduct, Product,
+} = require('../../db/models');
 
 cardApiRouter.post('/', async (req, res) => {
   const { userId } = req.session;
@@ -41,10 +41,10 @@ cardApiRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   const { userId } = req.session;
   const user = userId && (await User.findByPk(Number(userId)));
-  const product = await Product.findOne({where:Number(id),raw:true});
+  const product = await Product.findOne({ where: Number(id), raw: true });
   console.log(product);
-  // res.renderComponent(ProductPage, { product, user });
-  res.json({product});
+ 
+  res.json({ product });
 });
 
 module.exports = cardApiRouter;
