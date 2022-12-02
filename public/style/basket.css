@@ -1,0 +1,29 @@
+img {
+	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+}
+
+.product {
+	display: flex;
+	align-items: center;
+	border: 1px solid black;
+}
+
+.item {
+	/* padding: 10px; */
+	display: flex;
+	height: 20px;
+	width: 80px;
+}
+
+.item input {
+	width: 50px;
+}
+
+.delProdBtn {
+	background-color: bisque;
+	border: 1px solid black;
+	padding: 10px;
+	border-radius: 10px;
+}
