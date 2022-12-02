@@ -1,15 +1,14 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-const mainApiRouter = require('express').Router();
+const productsApiRouter = require('express').Router();
 
 const { User } = require('../../db/models');
 
-const HomePage = require('../../views/HomePage');
 const { Product } = require('../../db/models');
 const ProductContainer = require('../../views/ProductContainer');
 
-mainApiRouter.get('/dn', async (req, res) => {
+productsApiRouter.get('/dn', async (req, res) => {
   const { userId } = req.session;
   const user = userId && (await User.findByPk(Number(userId)));
   const products = await Product.findAll({
@@ -25,7 +24,7 @@ mainApiRouter.get('/dn', async (req, res) => {
   res.send(newHtml);
 });
 
-mainApiRouter.get('/', async (req, res) => {
+productsApiRouter.get('/', async (req, res) => {
   const { userId } = req.session;
   const user = userId && (await User.findByPk(Number(userId)));
   const products = await Product.findAll({
@@ -41,4 +40,4 @@ mainApiRouter.get('/', async (req, res) => {
   res.send(newHtml);
 });
 
-module.exports = mainApiRouter;
+module.exports = productsApiRouter;
