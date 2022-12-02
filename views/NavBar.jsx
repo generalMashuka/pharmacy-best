@@ -6,7 +6,7 @@ function NavBar({ user }) {
     <div className="nav-flex">
       <ul className="nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">ЛОГОТИП</a>
+          <a className="nav-link active" aria-current="page" href="/"><img src="/img/elbrusApt.png" alt="apt" /></a>
         </li>
       </ul>
 

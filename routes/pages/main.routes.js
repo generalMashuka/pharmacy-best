@@ -35,12 +35,12 @@ mainRouter.get('/dn', async (req, res) => {
   res.renderComponent(HomePage, { products, user });
 });
 
-mainRouter.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const { userId } = req.session;
-  const user = userId && (await User.findByPk(Number(userId)));
-  const product = await Product.findByPk(Number(id));
-  res.renderComponent(ProductPage, { product, user });
-});
+// mainRouter.get('/:id', async (req, res) => {
+//   const { id } = req.params;
+//   const { userId } = req.session;
+//   const user = userId && (await User.findByPk(Number(userId)));
+//   const product = await Product.findByPk(Number(id));
+//   res.renderComponent(ProductPage, { product, user });
+// });
 
 module.exports = mainRouter;
