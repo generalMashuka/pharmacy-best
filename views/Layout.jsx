@@ -3,7 +3,6 @@ const NavBar = require('./NavBar');
 
 
 function Layout({ children, user }) {
-
   return (
     <html lang="ru">
       <head>
