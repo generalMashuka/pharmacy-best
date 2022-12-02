@@ -116,39 +116,51 @@ gap: 20px;
   height: 300px;
   width: 300px;
 }
-.img-box{
-  max-height: 120px;
-max-width: 120px;
-align-self:center;
-justify-self:center;
+.img-box {
+  
+  max-width: 120px;
+  align-self: center;
+  justify-self: center;
 }
 #products-container {
   width: 50vw;
   height: auto;
-  
+
   display: flex;
   flex-wrap: wrap;
 }
-.box{
+.box {
   display: flex;
 }
-.price{
+.price {
   display: flex;
   justify-content: space-around;
-
 }
 .right {
-  
   border: 1px solid black;
   padding: 15px;
 }
-.calendar{
+.calendar {
   border: 1px solid black;
   width: 100%;
   height: 250px;
 }
-.week{
+.week {
   border: 1px solid black;
   width: 100%;
   height: 150px;
 }
+
+.card_max.card {
+  height: 500px;
+  width: 500px;
+}
+.card-img-top.img-box.img-max {
+  max-width: 330px;
+  max-height: 250px;
+}
+
+.card-body.card_max {
+  max-height: 100px;
+}
+
