@@ -1,30 +1,39 @@
 const React = require('react');
 
-function Product({ product }) {
+function Product({ product, user }) {
   return (
-    <div className="product-card" data-id={product.id}>
-      <div>
-        <div className="product-title">{product.name}</div>
+    <div className="card " data-id={product.id}>
+      <div className="card-body">
+        <h5 className="card-title">{product.name}</h5>
       </div>
-      <div className="img-centr">
-        <div className="product-img">
-          <img src={product.img} alt="img" />
-        </div>
-      </div>
+      <img src={product.img} className="card-img-top img-box" alt="..." />
       <div className="price">
-        <div className="product-full-price">
+        <p style={{ color: 'red', fontSize: '18px' }}>
           <strike>{product.full_price}</strike>
+          {' руб'}
+        </p>
+        <p style={{ color: 'green', fontSize: '20px' }}>{`${product.sale_price} руб`}</p>
+      </div>
+
+      {user ? (
+        <div>
+          <div className="price">
+            <p className="like-btn" type="button">
+              {' '}
+            </p>
+            <p className="sale-btn" type="button">
+              {' '}
+            </p>
+            <button type="button" className="btn-card" data-card-id={product.id}>
+              Подробнее
+            </button>
+          </div>
         </div>
-        <div className="product-sale-price">{product.sale_price}</div>
-      </div>
-      <div className="btn-like-sale">
-        <p className="like-btn" type="button">
-          <img src="/heart-regular.svg" alt="like" />
-        </p>
-        <p className="sale-btn" type="button">
-          <img src="" alt="sale" />
-        </p>
-      </div>
+      ) : (
+        <button type="button" className="btn-card" data-card-id={product.id}>
+          Подробнее
+        </button>
+      )}
     </div>
   );
 }
