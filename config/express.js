@@ -23,6 +23,8 @@ function expressConfig(app) {
   // настраиваем статические файлы из папки public
   app.use(express.static(path.join(__dirname, '../public')));
 
+  app.use(getUser);
+
   app.use(ssr);
   app.use(getUser);
 }
