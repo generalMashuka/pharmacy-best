@@ -1,6 +1,5 @@
 document.querySelector('.products').addEventListener('click', async (event) => {
   if (event.target.classList.contains('delProdBtn')) {
-    console.log(event.target.closest('.product'));
     const product = event.target.closest('.product');
     const res = await fetch(`/shop/${product.id}`, {
       method: 'delete',

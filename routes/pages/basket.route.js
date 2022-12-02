@@ -22,7 +22,6 @@ basketRout.delete('/:id', async (req, res) => {
 
 basketRout.put('/:id', async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const { counter } = req.body;
   console.log(counter);
   const basket = await BasketProduct.findOne({ where: { product_id: Number(id) } });
