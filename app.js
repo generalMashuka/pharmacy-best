@@ -11,12 +11,14 @@ const profileRouter = require('./routes/pages/profile.routes');
 const favoriteRouter = require('./routes/pages/favorite.router');
 
 const cardApiRouter = require('./routes/api/card.router');
+const mainApiRouter = require('./routes/api/main.routes');
 
 const app = express();
 
 expressConfig(app);
 
 app.use(mainRouter);
+app.use('/api', mainApiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', authApiRouter);
 app.use('/shop', basketRoute);

@@ -1,25 +1,15 @@
-const mainRouter = require('express').Router();
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+
+const mainApiRouter = require('express').Router();
 
 const { User } = require('../../db/models');
 
 const HomePage = require('../../views/HomePage');
 const { Product } = require('../../db/models');
+const ProductContainer = require('../../views/ProductContainer');
 
-mainRouter.get('/', async (req, res) => {
-  const { userId } = req.session;
-  const user = userId && (await User.findByPk(Number(userId)));
-  const products = await Product.findAll({
-    order: [
-      // сортируем по цене
-      ['sale_price', 'DESC'],
-      // если цены совпадают у двух записей, то они будут сравниваться по id
-      ['id', 'DESC'],
-    ],
-  });
-
-  res.renderComponent(HomePage, { products, user });
-});
-mainRouter.get('/dn', async (req, res) => {
+mainApiRouter.get('/dn', async (req, res) => {
   const { userId } = req.session;
   const user = userId && (await User.findByPk(Number(userId)));
   const products = await Product.findAll({
@@ -30,16 +20,25 @@ mainRouter.get('/dn', async (req, res) => {
       ['id', 'DESC'],
     ],
   });
-
-  res.renderComponent(HomePage, { products, user });
+  const element = React.createElement(ProductContainer, { products, user });
+  const newHtml = ReactDOMServer.renderToStaticMarkup(element);
+  res.send(newHtml);
 });
 
-// mainRouter.get('/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const { userId } = req.session;
-//   const user = userId && (await User.findByPk(Number(userId)));
-//   const product = await Product.findByPk(Number(id));
-//   res.renderComponent(ProductPage, { product, user });
-// });
+mainApiRouter.get('/', async (req, res) => {
+  const { userId } = req.session;
+  const user = userId && (await User.findByPk(Number(userId)));
+  const products = await Product.findAll({
+    order: [
+      // сортируем по цене
+      ['sale_price', 'DESC'],
+      // если цены совпадают у двух записей, то они будут сравниваться по id
+      ['id', 'DESC'],
+    ],
+  });
+  const element = React.createElement(ProductContainer, { products, user });
+  const newHtml = ReactDOMServer.renderToStaticMarkup(element);
+  res.send(newHtml);
+});
 
-module.exports = mainRouter;
+module.exports = mainApiRouter;
