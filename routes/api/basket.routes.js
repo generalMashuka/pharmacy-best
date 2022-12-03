@@ -1,14 +1,15 @@
 const basketApiRouter = require('express').Router();
 
-const { User, BasketProduct, Product, Order } = require('../../db/models');
+const {
+  User, BasketProduct, Product, Order,
+} = require('../../db/models');
 const Basket = require('../../views/Basket');
 
 basketApiRouter.post('/order', async (req, res) => {
   const { userId } = req.session;
   const { inputComment } = req.body;
-  const user =
-    userId &&
-    (await User.findOne({
+  const user = userId
+    && (await User.findOne({
       where: Number(userId),
     }));
   const userEmail = user.email;
@@ -25,7 +26,7 @@ basketApiRouter.post('/order', async (req, res) => {
         },
       });
       return prod.name;
-    })
+    }),
   );
   const totalPrice = await Promise.all(
     productId.map(async (el) => {
@@ -35,22 +36,22 @@ basketApiRouter.post('/order', async (req, res) => {
         },
       });
       return prod.sale_price;
-    })
+    }),
   );
   const price = totalPrice.reduce((acc, el) => acc + el);
 
-  const productList = p.map((el, index) => `${el}-${productCount[index]}шт, `).join();
+  const productList = p.map((el, index) => `${el}-${productCount[index]}шт`).join();
 
   await Order.create({
     email_user: userEmail,
     product_list: productList,
     status: 'Комплектуется',
     total_price: price,
-    comment: `комментарий к заказу: ${inputComment}`,
+    comment: `комментарий к заказу: ${inputComment} `,
   });
   await BasketProduct.destroy({ where: { user_id: userId } });
 
-  res.send()
+  res.send();
 });
 
 module.exports = basketApiRouter;

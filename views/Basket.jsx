@@ -69,7 +69,7 @@ function Busket({ user }) {
 
         <form className="commentForm" method="POST">
           <input
-            className="form-control"
+            className="form-control comment-order"
             name="comment"
             autoComplete="off"
             placeholder="Комментарий к заказу"

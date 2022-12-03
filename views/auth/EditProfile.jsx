@@ -90,11 +90,9 @@ function EditProfile({ user, orders }) {
 
       <div className="container">
         <div className="order-list">
-          {orders.map((order) => {
-            if (order.email_user === user.email) {
-              <Order key={order.id} order={order} user={user} />;
-            }
-          })}
+          {orders.map((order) => (
+            <Order key={order.id} order={order} user={user} />
+          ))}
         </div>
       </div>
 
