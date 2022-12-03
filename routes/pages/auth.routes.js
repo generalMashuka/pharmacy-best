@@ -19,11 +19,10 @@ authRouter.post('/login', async (req, res) => {
     req.session.userId = user.id;
 
     return res.json({ status: true });
-=======
-  //  res.redirect('/');
- // } else {
-  //  res.status(420).json({ message: 'пароль введен неверно' });
 
+    //  res.redirect('/');
+    // } else {
+    //  res.status(420).json({ message: 'пароль введен неверно' });
   }
   return res.json({ status: 'error', message: 'Неправильный адрес электронной почты или пароль' });
 });
