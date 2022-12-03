@@ -24,7 +24,17 @@ document.querySelector('.products').addEventListener('change', async (event) => 
 });
 
 document.querySelector('#orderBtn').addEventListener('click', async (event) => {
-  const data = await fetch('/api/shop/order');
-  const resData = await data.json();
-  console.log(resData);
+  event.preventDefault();
+  const btn = event.target;
+  const form = btn.closest('.commentForm');
+  const inputComment=form.comment.value,
+
+  const data = await fetch('/api/shop/order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ inputComment }),
+  });
+  window.location.href('/profile')
 });

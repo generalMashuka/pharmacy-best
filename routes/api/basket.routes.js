@@ -3,8 +3,9 @@ const basketApiRouter = require('express').Router();
 const { User, BasketProduct, Product, Order } = require('../../db/models');
 const Basket = require('../../views/Basket');
 
-basketApiRouter.get('/order', async (req, res) => {
+basketApiRouter.post('/order', async (req, res) => {
   const { userId } = req.session;
+  const { inputComment } = req.body;
   const user =
     userId &&
     (await User.findOne({
@@ -45,11 +46,11 @@ basketApiRouter.get('/order', async (req, res) => {
     product_list: productList,
     status: 'Комплектуется',
     total_price: price,
-    comment: 'comment',
+    comment: `комментарий к заказу: ${inputComment}`,
   });
   await BasketProduct.destroy({ where: { user_id: userId } });
 
-  res.json({ userEmail, productList, price });
+  res.send()
 });
 
 module.exports = basketApiRouter;
