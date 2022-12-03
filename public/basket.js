@@ -27,8 +27,8 @@ document.querySelector('#orderBtn').addEventListener('click', async (event) => {
   event.preventDefault();
   const btn = event.target;
   const form = btn.closest('.commentForm');
-  const inputComment = '44444';
-  // form.comment.value;
+
+  const inputComment = form.comment.value;
 
   await fetch('/api/shop/order', {
     method: 'POST',
@@ -37,5 +37,6 @@ document.querySelector('#orderBtn').addEventListener('click', async (event) => {
     },
     body: JSON.stringify({ inputComment }),
   });
+
   window.location.assign('/profile');
 });

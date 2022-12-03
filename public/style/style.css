@@ -131,7 +131,7 @@ gap: 20px;
   height: 370px;
   width: 250px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
 }
 
 .img-box {
@@ -352,6 +352,35 @@ body {
 
 .products {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card-order {
+  min-width: 500px;
+  min-height: 300px;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title-order {
+  margin-left: 40px;
+}
+
+.comment-order {
+  min-width: 800px;
+  width: 60%;
+  margin: auto;
+}
+.comment-order {
+  width: 60%;
+}
+
+.order-box {
+  /* margin-top: 30px; */
+  padding: 20px;
 }
 
 #free-container {

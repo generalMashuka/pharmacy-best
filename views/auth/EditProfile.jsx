@@ -1,7 +1,8 @@
 const React = require('react');
 const Layout = require('../Layout');
+const Order = require('../Order');
 
-function EditProfile({ user }) {
+function EditProfile({ user, orders }) {
   // console.log(user);
 
   return (
@@ -18,9 +19,7 @@ function EditProfile({ user }) {
             aria-describedby="loginHelp"
             name="email"
             defaultValue={user.email}
-
             autoComplete="off"
-
           />
         </div>
 
@@ -34,9 +33,7 @@ function EditProfile({ user }) {
             aria-describedby="loginHelp"
             name="name"
             defaultValue={user.name}
-
             autoComplete="off"
-
           />
 
         </div>
@@ -90,6 +87,14 @@ function EditProfile({ user }) {
           Submit
         </button>
       </form>
+
+      <div className="container">
+        <div className="order-list">
+          {orders.map((order) => (
+            <Order key={order.id} order={order} user={user} />
+          ))}
+        </div>
+      </div>
 
       <script src="/js/editProfile.js" />
       <div className="message" />

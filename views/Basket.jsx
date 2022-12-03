@@ -85,9 +85,21 @@ function Busket({ user }) {
             Оформить заказ
           </button>
         </div>
+
+        <form className="commentForm" method="POST">
+          <input
+            className="form-control comment-order"
+            name="comment"
+            autoComplete="off"
+            placeholder="Комментарий к заказу"
+          />
+          <div className="container">
+            <button id="orderBtn" className="btn btn-primary" type="submit">Оформить заказ</button>
+          </div>
+        </form>
       </div>
 
-      <script src='basket.js' />
+      <script src='basket.js' defer />
       {/* <link rel="stylesheet" href="/style/basket.css" /> */}
     </Layout>
   );
