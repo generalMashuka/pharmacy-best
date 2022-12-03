@@ -16,7 +16,7 @@ basketApiRouter.post('/order', async (req, res) => {
   const elem = await BasketProduct.findAll({ where: { user_id: userId } });
   const productId = elem.map((el) => el.product_id);
   const productCount = elem.map((el) => el.count_item);
-  console.log(productId);
+  // console.log(productId);
 
   const p = await Promise.all(
     productId.map(async (el) => {
@@ -38,7 +38,14 @@ basketApiRouter.post('/order', async (req, res) => {
       return prod.sale_price;
     }),
   );
-  const price = totalPrice.reduce((acc, el) => acc + el);
+
+  await console.log(totalPrice);
+
+  const priceItem = totalPrice.map((el, index) => el * productCount[index]);
+
+  const price = await priceItem.reduce((acc, el) => acc + el);
+
+  await console.log(price);
 
   const productList = p.map((el, index) => `${el}-${productCount[index]}шт`).join();
 
