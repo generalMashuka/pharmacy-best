@@ -80,12 +80,6 @@ function Busket({ user }) {
             </div>
           ))}
         </div>
-        <div className='container'>
-          <button id='orderBtn' className='btn btn-primary' type='submit'>
-            Оформить заказ
-          </button>
-        </div>
-
         <form className="commentForm" method="POST">
           <input
             className="form-control comment-order"
