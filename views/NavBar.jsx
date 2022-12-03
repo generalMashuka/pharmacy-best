@@ -35,9 +35,7 @@ function NavBar({ user }) {
           <div className="nav-link">
             <a className="nav-text" href="/profile">
               Hello,
-              {' '}
-
-              {' '}
+              {/* {' '} */}
               {user.name}
               !
             </a>

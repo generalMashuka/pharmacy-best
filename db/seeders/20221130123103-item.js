@@ -33,7 +33,7 @@ module.exports = {
         name: 'Морфин',
         full_price: 1000,
         sale_price: 998,
-        img: 'https://api.ratengoods.com/api/v0.10/image/9924413/?width=1200&height=1200',
+        img: 'https://www.endopharm.ru/upload/iblock/cb7/cb79330bbdd9bd8f5f445d4fcfbcda6e.png',
       },
       {
         name: 'Лидокаин',
@@ -60,10 +60,22 @@ module.exports = {
         img: 'https://farmani.ru/upload/iblock/d9e/ttas7ki1x7hrmlz8o9tzbnk2iysoulsk.jpg',
       },
       {
-        name: 'Полиоксидолий',
+        name: 'Симбикорт',
         full_price: 2281,
         sale_price: 1999,
         img: 'https://фото.монастырёв.рф/s/gi/prod/00/00/22/60/19/simbikort-turbuhaler-600x600.JPG',
+      },
+      {
+        name: 'Аскорбинка',
+        full_price: 22,
+        sale_price: 21,
+        img: 'https://uteka.ru/media/1024/1/5f/15fabb6c7568818e8ec49ed9957539c5.jpg',
+      },
+      {
+        name: 'Фенотропил',
+        full_price: 1788,
+        sale_price: 1255,
+        img: 'https://images.apteka.ru/original_1ce0d5e4-9552-4ad0-a430-097cf092ddd3.jpeg',
       },
     ]);
   },

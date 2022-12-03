@@ -26,15 +26,17 @@ function Product({ product, user }) {
             <p className="sale-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal-sale">
               {' '}
             </p>
-            <button type="button" className="btn btn-more" data-card-id={product.id} data-bs-toggle="modal" data-bs-target={`#exampleModal-${product.id}`}>
+            <button type="button" className="btn btn-more btn-primary" data-card-id={product.id} data-bs-toggle="modal" data-bs-target={`#exampleModal-${product.id}`}>
               Подробнее
             </button>
           </div>
         </div>
       ) : (
-        <button type="button" className="btn btn-more" data-card-id={product.id}>
-          Подробнее
-        </button>
+        <div className="price">
+          <button type="button" className="btn btn-more btn-primary" data-card-id={product.id}>
+            Подробнее
+          </button>
+        </div>
       )}
       <div>
         <div className="modal fade" id="exampleModal-like" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

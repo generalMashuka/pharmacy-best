@@ -4,7 +4,7 @@ const Layout = require('../Layout');
 function LoginPage({ user }) {
   return (
     <Layout user={user}>
-      <form action="/auth/login" method="POST">
+      <form id="login-form" action="/auth/login" method="POST">
         <div className="mb-3">
           <label htmlFor="exampleInputLogin1" className="form-label">
             Login
@@ -13,7 +13,7 @@ function LoginPage({ user }) {
             className="form-control"
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
-            name="login"
+            name="email"
             autoComplete="off"
             placeholder="введите E-mail"
           />
@@ -38,6 +38,7 @@ function LoginPage({ user }) {
           Submit
         </button>
       </form>
+      <script src="/loginPage.js" defer />
     </Layout>
   );
 }

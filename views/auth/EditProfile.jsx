@@ -17,7 +17,8 @@ function EditProfile({ user }) {
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
             name="email"
-            placeholder={user.email}
+            defaultValue={user.email}
+            autoComplete="off"
           />
         </div>
 
@@ -30,7 +31,8 @@ function EditProfile({ user }) {
             id="exampleInputName"
             aria-describedby="loginHelp"
             name="name"
-            placeholder={user.name}
+            defaultValue={user.name}
+            autoComplete="off"
           />
         </div>
 

@@ -18,6 +18,8 @@ function HomePage({ products, user }) {
             <a className="sort-dn btn btn-primary" href="#">
               Возрастанию
             </a>
+            <br />
+            <div className="text">цены</div>
           </div>
           <ProductContainer products={products} user={user} />
         </div>
