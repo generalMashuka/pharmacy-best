@@ -34,44 +34,60 @@ const Layout = require('./Layout');
 
 // React-компонент
 function Busket({ user }) {
-  const arr = user.Products.sort((a, b) => (`${a.name}`).localeCompare(b.name));
+  // const item = user.Products.array.forEach((el) => {
+  //   if (el.free_week) {
+  //     return (el.price = 0);
+  //   } else {
+  //     return el.price;
+  //   }
+  // });
+  const arr = user.Products;
   return (
     <Layout user={user}>
       <div>
-        <div className="products">
+        <div className='products'>
           {arr.map((product) => (
-
-            <div className="card product basket-card " style={{ width: '18rem' }} id={product.id}>
-
-              <div className="card-body basket-card-body">
-
-                <div className="card-simple">
-                  <div className="card-title">{product.name}</div>
+            <div className='card product basket-card ' style={{ width: '18rem' }} id={product.id}>
+              <div className='card-body basket-card-body'>
+                <div className='card-simple'>
+                  <div className='card-title'>{product.name}</div>
                 </div>
 
-                <img src={product.img} className="card-img-top img-box" alt="..." />
+                <img src={product.img} className='card-img-top img-box' alt='...' />
 
-                <div className="price">
-                  <p className="card-title" style={{ color: 'green', fontSize: '22px' }}>{`${product.sale_price} руб`}</p>
+                <div className='price'>
+                  <p>
+                    {product.free_week ? (
+                      <div>Бесплатно</div>
+                    ) : (
+                      <div className='card-title' style={{ color: 'green', fontSize: '22px' }}>{`${product.sale_price} руб`}</div>
+                    )}
+                  </p>
                 </div>
 
-                <div className="item card-simple">
-                  <input type="number" name="counter" id={product.id} className="counterBtn" defaultValue={product.BasketProduct.count_item} />
+                <div className='item card-simple'>
+                  <input
+                    type='number'
+                    name='counter'
+                    id={product.id}
+                    className='counterBtn'
+                    defaultValue={product.BasketProduct.count_item}
+                  />
                 </div>
 
-                <div className="delProdBtn btn btn-danger btn-favorite remove-btn">Удалить</div>
-
+                <div className='delProdBtn btn btn-danger btn-favorite remove-btn'>Удалить</div>
               </div>
             </div>
-
           ))}
         </div>
-        <div className="container">
-          <button id="orderBtn" className="btn btn-primary" type="submit">Оформить заказ</button>
+        <div className='container'>
+          <button id='orderBtn' className='btn btn-primary' type='submit'>
+            Оформить заказ
+          </button>
         </div>
       </div>
 
-      <script src="basket.js" />
+      <script src='basket.js' />
       {/* <link rel="stylesheet" href="/style/basket.css" /> */}
     </Layout>
   );

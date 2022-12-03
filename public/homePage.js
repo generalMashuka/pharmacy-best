@@ -1,6 +1,6 @@
 const container = document.querySelector('.left');
 
-document.querySelector('#products-container').addEventListener('click', async (event) => {
+document.querySelector('.box').addEventListener('click', async (event) => {
   if (event.target.classList.contains('like-btn')) {
     event.preventDefault();
     const likeBtn = event.target;
@@ -68,9 +68,4 @@ container.querySelector('.sort-up').addEventListener('click', async (event) => {
   const res = await fetch('/api/');
   const html = await res.text();
   htmlContainer.innerHTML = html;
-
-  
-
-
-  
 });

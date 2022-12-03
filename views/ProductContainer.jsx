@@ -4,7 +4,7 @@ const Product = require('./Product');
 
 function ProductContainer({ products, user }) {
   return (
-    <div id="products-container">
+    <div id='products-container'>
       {products.map((product) => (
         <Product key={product.id} product={product} user={user} />
       ))}

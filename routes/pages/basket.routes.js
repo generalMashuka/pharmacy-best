@@ -5,12 +5,13 @@ const Basket = require('../../views/Basket');
 
 basketRout.get('/', async (req, res) => {
   const { userId } = req.session;
-  const user = userId && (await User.findOne({
-    where: Number(userId),
-    include: [
-      User.BasketProducts,
-    ],
-  }));
+  const user =
+    userId &&
+    (await User.findOne({
+      where: Number(userId),
+      include: [User.BasketProducts],
+    }));
+  // console.log(user.Products);
   res.renderComponent(Basket, { user });
 });
 

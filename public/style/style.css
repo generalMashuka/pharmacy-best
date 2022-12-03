@@ -5,15 +5,13 @@
 }
 
 @font-face {
-  font-family: "Rostin";
-  src: url('../style/RF_Rostin/RF\ Rostin\ Regular.otf') format("opentype");
+  font-family: 'Rostin';
+  src: url('../style/RF_Rostin/RF\ Rostin\ Regular.otf') format('opentype');
 }
 
-
-A{
+A {
   text-decoration: none;
-  }
-
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -120,7 +118,7 @@ gap: 20px;
   background-image: url('../img/cart-arrow-down-solid.svg');
   width: 20px;
   height: 20px;
-  }
+}
 
 .nav-flex {
   display: flex;
@@ -134,15 +132,13 @@ gap: 20px;
   width: 250px;
   display: flex;
   flex-direction: column;
-  
 }
 
-.img-box{
-height: 150px;
-width: 220px;
-align-self:center;
-justify-self:center;
-
+.img-box {
+  height: 150px;
+  width: 220px;
+  align-self: center;
+  justify-self: center;
 }
 #products-container {
   width: 50vw;
@@ -156,11 +152,11 @@ justify-self:center;
   width: 100%;
 }
 
-.price{
+.price {
   display: flex;
   justify-content: space-around;
   align-items: center;
- }
+}
 .right {
   border: 1px solid black;
   padding: 15px;
@@ -176,8 +172,7 @@ justify-self:center;
   height: 150px;
 }
 
-
-.nav-link{
+.nav-link {
   color: rgb(211, 83, 60);
   display: flex;
   flex-direction: row;
@@ -197,7 +192,7 @@ justify-self:center;
   flex-direction: row;
 }
 
-.btn{
+.btn {
   font-family: 'Rostin', sans-serif;
   display: inline-block;
   background-color: grey;
@@ -212,10 +207,10 @@ justify-self:center;
   justify-content: center;
   margin-top: 10px;
   /* margin-left: 75px; */
-  font-family: "Rostin", Courier, monospace;
+  font-family: 'Rostin', Courier, monospace;
 }
 
-.btn-sort{
+.btn-sort {
   font-family: 'Rostin', sans-serif;
   font-size: 20px;
   padding: 0.2em 1em;
@@ -223,7 +218,7 @@ justify-self:center;
 
 .card-title {
   font-family: 'Rostin', sans-serif;
-  font-size: 25px;  
+  font-size: 25px;
 }
 
 .card-simple {
@@ -255,14 +250,13 @@ justify-self:center;
 .card {
   margin-left: 25px;
   margin-bottom: 45px;
-  
 }
 
 .favorite-card {
   height: 450px;
 }
 
-.basket-card-body {  
+.basket-card-body {
   gap: 15px;
 }
 
@@ -279,7 +273,7 @@ justify-self:center;
   max-height: 250px;
 }
 
-.card-img-top{
+.card-img-top {
   margin-bottom: 20px;
 }
 
@@ -296,7 +290,7 @@ justify-self:center;
   margin-right: 150px;
 }
 
-.img-logo{
+.img-logo {
   margin-left: 0px;
 }
 
@@ -325,8 +319,7 @@ justify-self:center;
 }
 
 .sort-up,
-.sort-dn
- {
+.sort-dn {
   font-size: 20px;
 }
 
@@ -342,7 +335,7 @@ body {
   background-color: rgb(187, 178, 178);
 }
 
-.sale-div{
+.sale-div {
   margin-top: 20px;
   scale: 120%;
 }
@@ -352,14 +345,18 @@ body {
   margin-bottom: 25px;
 }
 
-.text{
+.text {
   font-family: 'Rostin', sans-serif;
   margin-top: 10px;
 }
 
 .products {
   display: flex;
-  }
+}
 
-
-
+#free-container {
+  display: flex;
+}
+.card-img-free {
+  width: 70px;
+}

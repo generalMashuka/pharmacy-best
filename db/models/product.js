@@ -30,6 +30,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    free_week: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    next_free_week: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
     
   }, {
     sequelize,
