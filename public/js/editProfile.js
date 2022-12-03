@@ -4,7 +4,6 @@ document.querySelector('#edit-profile-form').addEventListener('submit', async (e
   const {
     email, password, passwordRepeat, name, currentPassword,
   } = event.target;
-  console.log(passwordRepeat.value);
 
   const response = await fetch('/api/profile', {
     method: 'PUT',
@@ -22,8 +21,8 @@ document.querySelector('#edit-profile-form').addEventListener('submit', async (e
     ),
   });
   const data = await response.json();
-  if (data.errormessage) {
-    alert('Пароли не совпадают');
+  if (data.message !== 'данные изменены') {
+    document.querySelector('.message').innerText = data.message;
   } else {
     // редирект на главную
     window.location.assign('/');

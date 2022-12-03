@@ -22,3 +22,9 @@ document.querySelector('.products').addEventListener('change', async (event) => 
     });
   }
 });
+
+document.querySelector('#orderBtn').addEventListener('click', async (event) => {
+  const data = await fetch('/api/shop/order');
+  const resData = await data.json();
+  console.log(resData);
+});

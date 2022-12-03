@@ -22,7 +22,7 @@ document.getElementById('register-form').addEventListener('submit', async (event
     // редирект на главную
     window.location.assign('/');
   } else {
-    const errorMessage = await response.text();
-    alert(errorMessage);
+    const data = await response.json();
+    document.querySelector('.message').innerText = data.message;
   }
 });

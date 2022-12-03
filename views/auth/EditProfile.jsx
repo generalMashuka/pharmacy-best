@@ -10,7 +10,7 @@ function EditProfile({ user }) {
         <div className="mb-3">
           <p className="in-stock">Изменить данные профиля</p>
           <label htmlFor="exampleInputLogin1" className="form-label">
-            Login(email)
+            Login
           </label>
           <input
             className="form-control"
@@ -18,7 +18,9 @@ function EditProfile({ user }) {
             aria-describedby="loginHelp"
             name="email"
             defaultValue={user.email}
+
             autoComplete="off"
+
           />
         </div>
 
@@ -32,8 +34,11 @@ function EditProfile({ user }) {
             aria-describedby="loginHelp"
             name="name"
             defaultValue={user.name}
+
             autoComplete="off"
+
           />
+
         </div>
 
         <div className="mb-3">
@@ -87,7 +92,7 @@ function EditProfile({ user }) {
       </form>
 
       <script src="/js/editProfile.js" />
-      {/* <div className='message'></div> */}
+      <div className="message" />
     </Layout>
   );
 }
