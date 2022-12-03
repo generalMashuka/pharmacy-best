@@ -5,47 +5,50 @@ function NavBar({ user }) {
     <div className="nav-flex">
       <ul className="nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">
+          <a className="nav-link active img-logo" aria-current="page" href="/">
             <img src="/img/elbrusApt.png" alt="apt" />
           </a>
         </li>
       </ul>
 
       {!user && (
-        <ul className="nav justify-content-end">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/auth/login">
-              Login
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/auth/register">
-              Register
-            </a>
-          </li>
-        </ul>
+        <div className="navbar">
+
+          <div className="nav justify-content-end">
+            <div className="nav-item">
+              <a className="nav-link active nav-text" aria-current="page" href="/auth/login">
+                Login
+              </a>
+            </div>
+            <div className="nav-item">
+              <a className="nav-link nav-text" href="/auth/register">
+                Register
+              </a>
+            </div>
+          </div>
+        </div>
+
       )}
 
       {user && (
-        <div className="navbar-logout">
+        <div className="navbar">
           <div className="nav-link">
-            Hello,
-            {' '}
-            <a href="/profile">
-              {' '}
+            <a className="nav-text" href="/profile">
+              Hello,
+              {/* {' '} */}
               {user.name}
               !
             </a>
           </div>
-          <div className="nav-btn">
+          <div className="nav-link">
             <div className="like-position">
-              <a href="/favorite">избранное</a>
+              <a className="nav-text" href="/favorite">Избранное</a>
             </div>
             <div className="shop-position">
-              <a href="/shop">корзина</a>
+              <a className="nav-text" href="/shop">Kорзина</a>
             </div>
             <div className="nav-link">
-              <a href="/auth/logout">Выйти</a>
+              <a className="nav-text" href="/auth/logout">Выйти</a>
             </div>
           </div>
         </div>

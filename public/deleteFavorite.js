@@ -25,6 +25,6 @@ document.querySelector('.favorite-product').addEventListener('click', async (eve
       // console.log(response);
     const result = await response.json();
     // console.log(result);
-    if (result.success) alert(result.success);
+    // if (result.success) alert(result.success);
   }
 });

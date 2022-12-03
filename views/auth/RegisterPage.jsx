@@ -14,7 +14,10 @@ function RegisterPage({ user }) {
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
             name="email"
-            placeholder="email@email"
+
+            autoComplete="off"
+            placeholder="введите E-mail"
+
           />
         </div>
 
@@ -27,6 +30,8 @@ function RegisterPage({ user }) {
             id="exampleInputName"
             aria-describedby="loginHelp"
             name="name"
+            autoComplete="off"
+            placeholder="введите свое имя"
           />
         </div>
 
@@ -42,7 +47,10 @@ function RegisterPage({ user }) {
             className="form-control"
             id="exampleInputPassword2"
             name="password"
-            placeholder="********"
+
+            autoComplete="off"
+            placeholder="введите пароль"
+
           />
         </div>
         <div className="mb-3">
@@ -57,7 +65,10 @@ function RegisterPage({ user }) {
             className="form-control"
             id="exampleInputPassword2"
             name="passwordRepeat"
-            placeholder="********"
+
+            autoComplete="off"
+            placeholder="подтвердите пароль"
+
           />
         </div>
         <button type="submit" className="btn btn-primary">
