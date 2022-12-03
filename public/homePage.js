@@ -27,6 +27,7 @@ document.querySelector('#products-container').addEventListener('click', async (e
       body: JSON.stringify({ id }),
     });
     const result = await response.json();
+    console.log(result.success);
     // } else if (event.target.classList.contains('btn-card')) {
     //   const btnCard = event.target;
     //   const card = btnCard.closest('.card');
@@ -67,4 +68,9 @@ container.querySelector('.sort-up').addEventListener('click', async (event) => {
   const res = await fetch('/api/');
   const html = await res.text();
   htmlContainer.innerHTML = html;
+
+  
+
+
+  
 });
