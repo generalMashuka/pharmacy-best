@@ -17,12 +17,12 @@ function NavBar({ user }) {
           <div className="nav justify-content-end">
             <div className="nav-item">
               <a className="nav-link active nav-text" aria-current="page" href="/auth/login">
-                Login
+                Войти
               </a>
             </div>
             <div className="nav-item">
               <a className="nav-link nav-text" href="/auth/register">
-                Register
+                Зарегистрироваться
               </a>
             </div>
           </div>
@@ -34,7 +34,7 @@ function NavBar({ user }) {
         <div className="navbar">
           <div className="nav-link">
             <a className="nav-text" href="/profile">
-              Hello,
+              Привет,
               {/* {' '} */}
               {user.name}
               !
