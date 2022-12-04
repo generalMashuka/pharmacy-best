@@ -28,12 +28,12 @@ function HomePage({ products, user }) {
           <ProductContainer products={notFreeProducts} user={user} />
         </div>
         <div className='right'>
-          <div>Бесплатные товары этой недели</div>
+          <div className='in-stock free-text'>Бесплатные товары этой недели</div>
           <div className='week'>
             {' '}
             <FreeWeekContainer products={freeProducts} user={user} />
           </div>
-          <div>Бесплатные товары следующей недели</div>
+          <div className='in-stock free-text'>Бесплатные товары следующей недели</div>
           <div className='week'>
             <FreeWeekContainer products={nextFreeProducts} />
           </div>
