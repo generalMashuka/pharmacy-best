@@ -38,8 +38,18 @@ module.exports = {
         name: 'Морфин',
         full_price: 1000,
         sale_price: 998,
+        free_week: true,
+        next_free_week: true,
+
+        img: 'https://www.endopharm.ru/upload/iblock/cb7/cb79330bbdd9bd8f5f445d4fcfbcda6e.png',
+      },
+      {
+        name: 'Морфин (promo)',
+        full_price: 1000,
+        sale_price: 0,
         free_week: false,
         next_free_week: false,
+        id: 99,
 
         img: 'https://www.endopharm.ru/upload/iblock/cb7/cb79330bbdd9bd8f5f445d4fcfbcda6e.png',
       },

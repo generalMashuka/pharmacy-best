@@ -1,7 +1,7 @@
 const authApiRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const { User } = require('../../db/models');
+const { User, BasketProduct } = require('../../db/models');
 
 authApiRouter.post('/register', async (req, res) => {
   const user = await User.findOne({
@@ -20,11 +20,15 @@ authApiRouter.post('/register', async (req, res) => {
     email: req.body.email,
     name: req.body.name,
     password: await bcrypt.hash(req.body.password, 10),
-
   });
 
   req.session.userId = newUser.id;
-  res.redirect('/');
+  await BasketProduct.create({
+    product_id: 99,
+    user_id: newUser.id,
+    count_item: 1,
+  });
+  // res.redirect('/');
   return res.status(200).send({ message: 'данные изменены' });
 });
 
