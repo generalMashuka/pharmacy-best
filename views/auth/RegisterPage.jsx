@@ -7,23 +7,20 @@ function RegisterPage({ user }) {
       <form id="register-form">
         <div className="mb-3">
           <label htmlFor="exampleInputLogin1" className="form-label">
-            Login
+            Электронная почта
           </label>
           <input
             className="form-control"
             id="exampleInputLogin1"
             aria-describedby="loginHelp"
             name="email"
-
             autoComplete="off"
             placeholder="введите E-mail"
-
           />
         </div>
-
         <div className="mb-3">
           <label htmlFor="exampleInputName" className="form-label">
-            Name
+            Имя
           </label>
           <input
             className="form-control"
@@ -34,23 +31,20 @@ function RegisterPage({ user }) {
             placeholder="введите свое имя"
           />
         </div>
-
         <div className="mb-3">
           <label
             htmlFor="exampleInputPassword1"
             className="form-label"
           >
-            Password
+            Пароль
           </label>
           <input
             type="password"
             className="form-control"
             id="exampleInputPassword2"
             name="password"
-
             autoComplete="off"
             placeholder="введите пароль"
-
           />
         </div>
         <div className="mb-3">
@@ -58,24 +52,22 @@ function RegisterPage({ user }) {
             htmlFor="exampleInputPassword2"
             className="form-label"
           >
-            Repeat Password
+            Повторите пароль
           </label>
           <input
             type="password"
             className="form-control"
             id="exampleInputPassword2"
             name="passwordRepeat"
-
             autoComplete="off"
             placeholder="подтвердите пароль"
-
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Зарегистрироваться
         </button>
+        <div className="message" />
       </form>
-      <div className="message" />
       <script src="/registerPage.js" />
     </Layout>
   );

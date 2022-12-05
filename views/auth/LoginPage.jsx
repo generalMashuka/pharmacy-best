@@ -9,7 +9,7 @@ function LoginPage({ user }) {
 
         <div className="mb-3">
           <label htmlFor="exampleInputLogin1" className="form-label">
-            Login
+            Электронная почта
           </label>
           <input
             className="form-control"
@@ -27,7 +27,7 @@ function LoginPage({ user }) {
             htmlFor="exampleInputPassword1"
             className="form-label"
           >
-            Password
+            Пароль
           </label>
           <input
             type="password"
@@ -41,7 +41,7 @@ function LoginPage({ user }) {
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Войти
         </button>
       </form>
 

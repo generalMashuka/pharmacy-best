@@ -23,12 +23,14 @@ authApiRouter.post('/register', async (req, res) => {
   });
 
   req.session.userId = newUser.id;
+  
   await BasketProduct.create({
     product_id: 99,
     user_id: newUser.id,
     count_item: 1,
   });
   // res.redirect('/');
+
   return res.status(200).send({ message: 'данные изменены' });
 });
 

@@ -11,7 +11,7 @@ function EditProfile({ user, orders }) {
         <div className="mb-3">
           <p className="in-stock">Изменить данные профиля</p>
           <label htmlFor="exampleInputLogin1" className="form-label">
-            Login
+            Электронная почта
           </label>
           <input
             className="form-control"
@@ -25,7 +25,7 @@ function EditProfile({ user, orders }) {
 
         <div className="mb-3">
           <label htmlFor="exampleInputName" className="form-label">
-            Name
+            Имя
           </label>
           <input
             className="form-control"
@@ -43,7 +43,7 @@ function EditProfile({ user, orders }) {
             htmlFor="exampleInputPassword1"
             className="form-label"
           >
-            New Password
+            Новый пароль
           </label>
           <input
             type="password"
@@ -58,7 +58,7 @@ function EditProfile({ user, orders }) {
             htmlFor="exampleInputPassword2"
             className="form-label"
           >
-            Repeat New Password
+            Повторите ваш новый пароль
           </label>
           <input
             type="password"
@@ -73,7 +73,7 @@ function EditProfile({ user, orders }) {
             htmlFor="exampleInputPassword2"
             className="form-label"
           >
-            Current Password
+            Ваш актуальный пароль
           </label>
           <input
             type="password"
@@ -84,10 +84,10 @@ function EditProfile({ user, orders }) {
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Подтвердить изменения
         </button>
+        <div className="message" />
       </form>
-
       <div className="container">
         <div className="order-list">
           {orders.map((order) => (
@@ -97,7 +97,7 @@ function EditProfile({ user, orders }) {
       </div>
 
       <script src="/js/editProfile.js" />
-      <div className="message" />
+
     </Layout>
   );
 }
