@@ -1,12 +1,13 @@
+const e = require('express');
 const React = require('react');
 const FreeWeekContainer = require('./FreeWeekContainer');
 const Layout = require('./Layout');
 const ProductContainer = require('./ProductContainer');
 
 function HomePage({ products, user }) {
-  const notFreeProducts = products.filter((el) => el.free_week !== true);
-  const freeProducts = products.filter((el) => el.free_week === true).filter((el, ind) => ind <= 3);
-  const nextFreeProducts = products.filter((el) => el.next_free_week === true).filter((el, ind) => ind <= 3);
+  const notFreeProducts = products.filter((el) => el.free_week !== true && el.sale_price !== 0);
+  const freeProducts = products.filter((el) => el.free_week === true && el.next_free_week !== true).filter((el, ind) => ind <= 3);
+  const nextFreeProducts = products.filter((el) => el.next_free_week === true && el.free_week !== true).filter((el, ind) => ind <= 3);
   return (
     <Layout title='Pharmacy' user={user}>
       <div className='box'>
@@ -28,12 +29,12 @@ function HomePage({ products, user }) {
           <ProductContainer products={notFreeProducts} user={user} />
         </div>
         <div className='right'>
-          <div>Бесплатные товары этой недели</div>
+          <div className='in-stock free-text'>Бесплатные товары этой недели</div>
           <div className='week'>
             {' '}
             <FreeWeekContainer products={freeProducts} user={user} />
           </div>
-          <div>Бесплатные товары следующей недели</div>
+          <div className='in-stock free-text'>Бесплатные товары следующей недели</div>
           <div className='week'>
             <FreeWeekContainer products={nextFreeProducts} />
           </div>
