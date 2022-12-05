@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class FavoriteProduct extends Model {
@@ -10,26 +8,29 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ User, Product }) {
-      FavoriteProduct.belongsTo(User, { foreignKey: 'user_id' });
-      FavoriteProduct.belongsTo(Product, { foreignKey: 'product_id' });
+      FavoriteProduct.User = FavoriteProduct.belongsTo(User, { foreignKey: 'user_id' });
+      FavoriteProduct.Product = FavoriteProduct.belongsTo(Product, { foreignKey: 'product_id' });
     }
   }
-  FavoriteProduct.init({
-    product_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      onDelete: 'CASCADE',
+  FavoriteProduct.init(
+    {
+      product_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        onDelete: 'CASCADE',
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        onDelete: 'CASCADE',
+      },
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      onDelete: 'CASCADE',
-    },
-  }, {
-    sequelize,
-    modelName: 'FavoriteProduct',
-  });
+    {
+      sequelize,
+      modelName: 'FavoriteProduct',
+    }
+  );
   return FavoriteProduct;
 };

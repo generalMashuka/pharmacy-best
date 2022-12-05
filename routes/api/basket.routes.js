@@ -1,56 +1,34 @@
 const basketApiRouter = require('express').Router();
 
-const {
-  User, BasketProduct, Product, Order,
-} = require('../../db/models');
+const { User, BasketProduct, Product, Order } = require('../../db/models');
 const Basket = require('../../views/Basket');
 
 basketApiRouter.post('/order', async (req, res) => {
   const { userId } = req.session;
   const { inputComment } = req.body;
-  const user = userId
-    && (await User.findOne({
+  const user =
+    userId &&
+    (await User.findOne({
       where: Number(userId),
     }));
   const userEmail = user.email;
-  const elem = await BasketProduct.findAll({ where: { user_id: userId } });
-  const productId = elem.map((el) => el.product_id);
+  const elem = await BasketProduct.findAll({
+    where: { user_id: userId },
+    include: [BasketProduct.Product],
+  });
+  const products = elem.map((el) => el.Product);
   const productCount = elem.map((el) => el.count_item);
   // console.log(productId);
 
-  const p = await Promise.all(
-    productId.map(async (el) => {
-      const prod = await Product.findOne({
-        where: {
-          id: el,
-        },
-      });
-      return prod.name;
-    }),
-  );
-  const totalPrice = await Promise.all(
-    productId.map(async (el) => {
-      const prod = await Product.findOne({
-        where: {
-          id: el,
-        },
-      });
-      if (prod.free_week) {
-        return 0;
-      }
-      return prod.sale_price;
-    }),
-  );
+  // await console.log(totalPrice);
 
-  await console.log(totalPrice);
-
-  const priceItem = totalPrice.map((el, index) => el * productCount[index]);
+  const priceItem = products.map((el, index) => el.sale_price * productCount[index]);
 
   const price = await priceItem.reduce((acc, el) => acc + el);
 
   await console.log(price);
 
-  const productList = p.map((el, index) => `${el}-${productCount[index]}шт`).join();
+  const productList = products.map((el, index) => `${el.name}-${productCount[index]}шт`).join();
 
   await Order.create({
     email_user: userEmail,

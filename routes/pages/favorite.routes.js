@@ -6,16 +6,20 @@ router.get('/', async (req, res) => {
   const { userId } = req.session;
   const user = await User.findOne({ where: { id: userId } });
   //   console.log(user);
-  const favoriteProducts = await FavoriteProduct.findAll({ where: { user_id: userId } });
-  const productList = await Promise.all(
-    favoriteProducts.map(async (el) => await Product.findOne({ where: { id: el.product_id } })),
-  );
+  const favoriteProducts = await FavoriteProduct.findAll({ where: { user_id: userId }, include: [FavoriteProduct.Product] });
+  // const productList = await Promise.all(favoriteProducts.map(async (el) => await Product.findOne({ where: { id: el.product_id } })));
+  // const productList = await Product.findAll({ where: { id: favoriteProducts.map((el) => el.product_id) } });
+  const productList = favoriteProducts.map((el) => el.Product);
   // console.log(productList);
-  res.renderComponent(FavoritePage, {
-    title: 'My favorites',
-    user,
-    products: productList,
-  }, { doctype: false });
+  res.renderComponent(
+    FavoritePage,
+    {
+      title: 'My favorites',
+      user,
+      products: productList,
+    },
+    { doctype: false }
+  );
 });
 
 router.delete('/delete/:id', async (req, res) => {
