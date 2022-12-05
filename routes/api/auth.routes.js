@@ -24,7 +24,6 @@ authApiRouter.post('/register', async (req, res) => {
   });
 
   req.session.userId = newUser.id;
-  res.redirect('/');
   return res.status(200).send({ message: 'данные изменены' });
 });
 
